@@ -30,7 +30,7 @@
 
         //アニメーション用画像の詳細設定（車）
         const iconImage = L.icon({
-            iconUrl: "/images/blueCarFree.png",
+            iconUrl: "images/blueCarFree.png",
             iconSize: [40, 40],
             iconAnchor: [20, 20]
         });
@@ -127,9 +127,6 @@
         }
 
         function removeMarker(e) {
-
-            // 地図へのイベント伝播を止める
-            //L.DomEvent.stopPropagation(e);
             let mk = e.target;
             map.removeLayer(mk);
             markers = markers.filter(function (marker) {
@@ -222,7 +219,7 @@
             }
 
             // マーカーが2つ未満ならアニメーションしない
-            //if (markers.length < 2) return;
+            if (markers.length < 2) return;
 
             // マーカーから座標を取得
             const route = [];
@@ -263,17 +260,22 @@
         function animate() {
             // アニメーションが停止していたら終了
             if (!isMoving) return;
+            // 次の座標がなければ終了
+            if (position >= smoothRoute.length) {
+                stopMoving();
+                return;
+            }
 
-            // 車の位置を更新
+            //車と軌跡を更新
             curMarker.setLatLng(smoothRoute[position]);
-            // 軌跡を更新
             trail.setLatLngs(smoothRoute.slice(0, position + 1));
-            // 次の座標へ進む
+            // 次の座標に進む
             position += 1;
-            // 次のアニメーションを予約
+            // 次のアニメーションを予約する
             animationId = requestAnimationFrame(animate);
         }
 
+        
         // 2点間を細かいステップに分割して滑らかな移動を実現
         function interpolateRoute(route, steps = 50) {
             const interpolated = [];
@@ -334,8 +336,7 @@
     
     <div id="header">
         <h1>2点間の合計直線距離を表示する</h1>
-        <button id="continuation">再開</button>
-        <button id="pause">一時停止</button>
+        <button id="pause">一時停止／再開</button>
         <div id="clock"></div>
     </div>
 
