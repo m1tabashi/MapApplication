@@ -1,0 +1,109 @@
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+}
+
+#header h1 {
+    margin: 0;
+}
+
+
+
+#pause {
+    position: absolute;
+    left: 50%;
+    z-index: 1003;
+
+    padding: 8px 12px;
+
+    /* background: blue;
+    color: white; */
+    cursor: pointer;
+}
+
+#clock {
+    font-size: 20px;
+}
+
+h1 {
+    height: 45px;
+    box-sizing: border-box;
+    margin: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 24px;
+}
+
+
+#mapcontainer {
+    width: 100%;
+    height: calc(100vh - 45px);
+    position: relative;
+}
+
+/* 距離情報 */
+#info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+
+    background: white;
+    padding: 15px;
+    max-width: 90%;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+/* リセットボタン */
+#resetButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    background: blue;
+    color: white;
+    cursor: pointer;
+}
+
+/* 見出しとボタンが重ならないようにする */
+#info h3 {
+    margin-top: 0;
+    margin-right: 100px;
+    margin-bottom: 12px;
+    margin-left: 0;
+}
+
+
+
+/* 右クリック用、未完成 */
+#contextmenu{
+    display: none;
+    position: fixed;
+    left:0px;
+    top:0px;
+    width:200px;
+    height:100px;
+    border:1px solid black;
+    background-color: white;
+}
+
+#contextmenu li{
+    cursor: pointer;
+}
+
+
+
+
+

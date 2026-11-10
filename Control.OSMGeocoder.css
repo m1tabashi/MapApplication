@@ -1,0 +1,30 @@
+ /* 検索欄のリンクの基本設定 */
+.leaflet-control-geocoder a {
+	background-position: 50% 50%; /* 背景画像を中央に配置 */
+	background-repeat: no-repeat; /* 背景画像を繰り返さない */
+	display: block; /* 要素をブロック要素として表示 */
+}
+
+ /* 検索欄の背景とか */
+.leaflet-control-geocoder {
+	box-shadow: 0 1px 7px #999; /* 薄い影をつける */
+	background: #f8f8f9; /* 背景を指定 */
+	border-radius: 8px; /* 角を丸くする */
+}
+
+ /* 検索アイコンの大きさと画像、使ってない */
+.leaflet-control-geocoder a {
+	background-image: url(images/geocoder.png);
+	width: 36px;
+	height: 36px;
+}
+
+ /* タッチ操作時のサイズ変更 */
+.leaflet-touch .leaflet-control-geocoder a {
+	width: 44px;
+	height: 44px;
+}
+
+.leaflet-control-geocoder-expanded .leaflet-control-geocoder-form {
+	padding: 5px;
+}
